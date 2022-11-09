@@ -54,13 +54,11 @@ class RemoteDataSourceServiceImpl implements RemoteDataSourceService {
 
     var message = Rx.merge<T>([
       networkStateStream
-          .doOnData((valid) => print('valid1=$valid'))
           .where((valid) => !valid)
           .map((_) => throw Stream.error(NetworkException(
                 'نرجو منك التحقق من شبكة الانترنت.',
               ))),
       networkStateStream
-          .doOnData((valid) => print('valid1=$valid'))
           .where((valid) => valid)
           .flatMap((_) => response.map((data) {
                 return createResponse<T>(creator, data);

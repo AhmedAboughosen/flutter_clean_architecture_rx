@@ -5,7 +5,4 @@ abstract class BaseRepository {
 
   BaseRepository({this.remoteDataSourceService});
 
-  String endPoint();
-
-
 }

@@ -20,4 +20,9 @@ class LoginValidation extends AbstractValidator<LoginValidation> {
         .between(3, 4)
         .withMessage("password should be at least 3 digit");
   }
+
+
+  void dispose(){
+
+  }
 }

@@ -1,30 +1,40 @@
+import 'package:flutter_clean_architecture_rx/core/data/models/base/resource.dart';
 import 'package:flutter_clean_architecture_rx/core/data/repositories/login_repository_impl.dart';
 import 'package:flutter_clean_architecture_rx/core/domain/validation/login_validation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../data/models/auth/login_model.dart';
+import '../../base/bloc_base.dart';
 import '../../base/sync_stream.dart';
 
 @Injectable()
-class LoginBloc {
+class LoginBloc extends BlocBase {
   final LoginValidation loginValidation;
   final LoginRepository loginRepository;
 
-  final SyncStream<LoginModel> syncStream;
+  final SyncStream<LoginModel> loginApi;
 
   LoginBloc({
     required this.loginValidation,
     required this.loginRepository,
-    required this.syncStream,
+    required this.loginApi,
   });
 
   void login() {
-    loginValidation.validate();
+    if (!loginValidation.validate()) return;
 
-    syncStream.push(loginRepository.login(
-        loginValidation.email.value, loginValidation.password.value));
+    loginApi
+        .push(loginRepository.login(
+            loginValidation.email.value, loginValidation.password.value));
+  }
+
+  @override
+  void dispose() {
+    loginApi.close();
   }
 }
+
+
 // import 'package:formz/formz.dart';
 // import 'package:injectable/injectable.dart';
 // import 'package:payment_core/data/app_config.dart';

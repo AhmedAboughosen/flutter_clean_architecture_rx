@@ -3,17 +3,15 @@ import 'package:flutter_clean_architecture_rx/infrastructure/remoteDataSource/ht
 import '../../../infrastructure/remoteDataSource/networkSettings/http_method.dart';
 import '../models/auth/login_model.dart';
 import 'base_repository.dart';
+import 'end_points.dart';
 
 class LoginRepository extends BaseRepository {
   LoginRepository({RemoteDataSourceService? remoteDataSourceService});
 
-  @override
-  String endPoint() => 'api/Profile/Pin';
-
   Stream<LoginModel> login(String userName, String password) =>
       remoteDataSourceService!.requestService<LoginModel>(
         () => LoginModel(),
-        endPoint: endPoint(),
+        endPoint: EndPoints.LOGIN,
         queryParameters: {
           'userName': userName,
           'password': password,

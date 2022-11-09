@@ -23,9 +23,14 @@ class SyncStream<T> {
     });
 
     localStream.doOnError((error, stacktrace) {
-      return streamSink.add(FailureResponse<T>(messages: error));
+      return streamSink.addError(FailureResponse<T>(messages: error));
     });
 
     return stream;
+  }
+
+
+  void close(){
+    _syncStream.close();
   }
 }

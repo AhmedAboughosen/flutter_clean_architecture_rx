@@ -204,15 +204,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  fluent_validation:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "4184bbdc5bdd785fe5f539c5e9401e67759d2c66"
-      url: "https://github.com/AhmedAboughosen/stream_fluent_validation.git"
-    source: git
-    version: "0.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
