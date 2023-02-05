@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_clean_architecture_rx/infrastructure/remoteDataSource/httpHandler/handle_response.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../../core/data/exception/core_exception.dart';
 import '../../../core/data/exception/network_exception.dart';
 import '../../../core/data/models/base/base_response_model.dart';
 import '../extension/dio_options.dart';

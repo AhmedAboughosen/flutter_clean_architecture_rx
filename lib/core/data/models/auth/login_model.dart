@@ -5,17 +5,17 @@ part 'login_model.g.dart';
 
 @JsonSerializable()
 class LoginModel extends ResponseModel<LoginModel> {
-  @JsonKey(name: 'creds', defaultValue: 0)
-  final int? credentials;
-  @JsonKey(name: 'value', defaultValue: '')
-  final String? token;
-  @JsonKey(name: 'refreshToken', defaultValue: '')
-  final String? refreshToken;
+  @JsonKey(name: 'userId', defaultValue: 0)
+  final int? userId;
+  @JsonKey(name: 'id', defaultValue: 0)
+  final int? id;
+  @JsonKey(name: 'title', defaultValue: '')
+  final String? title;
 
   LoginModel({
-    this.credentials,
-    this.token,
-    this.refreshToken,
+    this.userId,
+    this.id,
+    this.title,
   });
 
   factory LoginModel.fromJson(Map<String, dynamic> json) =>

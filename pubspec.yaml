@@ -48,8 +48,6 @@ dependencies:
 
   formz: ^0.4.1
 
-  # bloc:
-  flutter_bloc: ^8.1.1
 
   #DI
   injectable: ^1.5.3
@@ -65,7 +63,10 @@ dependencies:
   rxdart: ^0.27.5
 
   fluent_validation:
-    git: https://github.com/AhmedAboughosen/stream_fluent_validation.git
+    git: git@github.com:AhmedAboughosen/stream_fluent_validation.git
+
+  form_bloc_version:
+    git: git@github.com:AhmedAboughosen/form_bloc.git
 
 dev_dependencies:
   flutter_test:

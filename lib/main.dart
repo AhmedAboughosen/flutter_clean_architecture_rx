@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture_rx/presentation/features/login/page/login_page.dart';
 
 import 'core/domain/di/injection.dart';
+import 'infrastructure/remoteDataSource/networkSettings/http_base_url.dart';
 
 void main() {
+  HttpBaseUrl.httpBaseUrl.url = "https://jsonplaceholder.typicode.com/";
+
   configureInjection(Environment.dev);
 
   runApp(const MyApp());
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
